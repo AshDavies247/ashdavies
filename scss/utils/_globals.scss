@@ -1,0 +1,10 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    @include font-size($fzBase);
+    box-sizing: border-box;
+    font-family: $fontfamily;
+    background-color: #fff0a5;
+}

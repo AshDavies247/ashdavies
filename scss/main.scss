@@ -1,0 +1,17 @@
+// Utilities
+
+@import 'utils/reset';
+@import 'utils/variables';
+@import 'utils/typography';
+@import 'utils/mixins';
+@import 'utils/globals';
+@import 'utils/placeholders';
+
+// components
+
+@import 'components/header';
+@import 'components/footer';
+
+// layouts
+
+@import 'layouts/home';
