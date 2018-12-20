@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    
+    background-color: white;
+    
+    border-right: em(10) double black;
+    height: 100vh;
+    width: em(250);
+
+    &__logo {
+        flex: 0 1 auto;
+        align-self: center;
+        height: em(150);
+        width: em(150);
+    }
+
+
+}
+
+main {
+    margin: 0 em(40);
+}

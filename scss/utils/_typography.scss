@@ -1,9 +1,0 @@
-@function em($pxval, $base: $fzBase) {
-    @return ($pxval / $base) * 1em;
-}
-
-@mixin font-size($sizeValue: 16){
-    font-size: $sizeValue + px;
-    font-size: ($sizeValue / 10) + rem;
-  }
-  

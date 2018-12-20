@@ -1,0 +1,61 @@
+// Media Queries
+// --------------------------------------------------
+
+
+$minBreakpoints: (
+  small: 767px,
+  medium: 992px,
+  large: 1200px
+);
+
+$maxBreakpoints: (
+  // namespacing inbetween sizes: alphabetised modifiers, indented below parent to visualise relationship.
+  
+  // DESKTOP
+  desk-xl: 1600px,
+  // desk-xl-a: 1550px,
+  // desk-xl-b: 1525px,
+  desk-l: 1500px,
+    desk-l-a: 1400px,
+  desk-m: 1350px,
+  	desk-m-a: 1300px,
+  desk-s: 1250px,
+  
+  // TABLET
+  tab-xl: 1200px,
+  	tab-xl-a: 1150px,
+  	tab-xl-b: 1100px,
+  	tab-xl-c: 1050px,
+  tab-l: 1000px,
+  	tab-l-a: 950px,
+  	tab-l-b: 900px,
+  tab-m: 850px,
+  tab-s: 800px,
+  	tab-s-a: 750px,
+  	tab-s-b: 700px,
+  	tab-s-c: 650px,
+  	
+  // MOBILE
+  mob-xl: 600px,
+  	mob-xl-a: 550px,
+  mob-l: 500px,
+  	mob-l-a: 450px,
+  mob-m: 400px,
+  	mob-m-a: 350px,
+  mob-s: 320px,
+);
+
+@mixin bp($breakpoint) { 
+  @if map-has-key($minBreakpoints, $breakpoint) {
+  	$point: map-get($minBreakpoints, $breakpoint) / 1px / 16 +em;
+    @media (min-width: #{$point}) {
+      @content;
+    }
+  }
+  @if map-has-key($maxBreakpoints, $breakpoint) {
+  	$point: map-get($maxBreakpoints, $breakpoint) / 1px / 16 +em;
+    @media (max-width: #{$point}) {
+      @content;
+    }
+  }
+}

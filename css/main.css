@@ -137,4 +137,20 @@ body {
   font-family: "Source Sans Pro", Arial, sans-serif;
   background-color: #fff0a5; }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-right: 0.4545454545em double black;
+  height: 100vh;
+  width: 11.3636363636em; }
+  .header__logo {
+    flex: 0 1 auto;
+    align-self: center;
+    height: 6.8181818182em;
+    width: 6.8181818182em; }
+
+main {
+  margin: 0 1.8181818182em; }
+
 /*# sourceMappingURL=main.css.map */
