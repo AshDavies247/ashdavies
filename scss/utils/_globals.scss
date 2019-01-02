@@ -5,6 +5,15 @@ html {
 body {
     @include font-size($fzBase);
     box-sizing: border-box;
-    font-family: $fontfamily;
-    background-color: #fff0a5;
+    font-family: $primaryFont;
+    color: $fontColor;
+}
+
+main {
+    padding-top: em(200);
+}
+
+.alpha {
+    font-size: em($fzHeading);
+    text-align: center;
 }

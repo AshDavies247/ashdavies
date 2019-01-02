@@ -1,23 +1,41 @@
 .header {
-    display: flex;
-    flex-direction: column;
-    
     background-color: white;
+    height: em(150);
+    width: 100vw;
+    box-shadow: 0px 4px 54px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 4px 54px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 54px 1px rgba(0,0,0,0.75);
+    position: fixed;
     
-    border-right: em(10) double black;
-    height: 100vh;
-    width: em(250);
+
+    &-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: em(20) em(20);
+        max-width: em(1000);
+        margin: 0 auto;
+    }
 
     &__logo {
         flex: 0 1 auto;
         align-self: center;
-        height: em(150);
-        width: em(150);
+        max-height: em(100);
+    }
+
+    &__quote {
+        font-family: $quoteFont;
+    }
+
+    &__nav-item {
+        margin-right: em(20);
+        display: inline-block;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
 
-}
-
-main {
-    margin: 0 em(40);
 }
