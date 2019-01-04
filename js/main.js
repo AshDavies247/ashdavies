@@ -4,24 +4,38 @@
 var requestURL = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=e447b53b0468e8185e7be1f1a16daccd";
 var request = new XMLHttpRequest();
 
-request.open('GET',requestURL);
+request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
-request.onload = weather;
+request.onload = weatherImgControl;
 
-// weather creation functions
+// background image chooser
 
 var body = $('.content');
+var weatherControls = $('[data-js-weather]');
 
-function weather() {
+function weatherImgControl() {
 
-    var weatherList = ['2','3','5','6','7','8','9'];
-    var bgList = ['thunderstorm','drizzle','rain','snow','atmosphere','clear','clouds']
+    // arrays of the first number of each weather category  ID. e.g 2 is the first number of the weather category ID of Thunderstorms, which is actually 200 in full.
+    var weatherIndex = ['2', '3', '5', '6', '7', '8', '9'];
 
+    // corresponding weather categories to the category ID.
+    var weatherImgIndex = ['thunderstorm', 'drizzle', 'rain', 'snow', 'atmosphere', 'clear', 'clouds']
+
+    // gets the ID of the current weather condition
     var weatherId = request.response['weather'][0]['id'];
-    var weatherNum = weatherId.toString().charAt(0);
 
-    var weatherNumTwo = weatherList.indexOf(weatherNum);
-    
-    body.css('background-image','url(../media/'+bgList[weatherNumTwo]+'.jpg)');
+    // picks out the first number of the above weather condition ID
+    var weatherIdShort = weatherId.toString().charAt(0);
+
+    // finds out which index the above number is in the weatherIndex array
+    var weatherFinder = weatherIndex.indexOf(weatherIdShort);
+
+    // changes the background image of the page to the relevant weather image.
+    body.css('background-image', 'url(../media/' + weatherImgIndex[weatherFinder] + '.gif)');
+
+    // Similar logic to above but using the number of the data attribute on the weather controls grid.
+    weatherControls.on('click', function () {
+        body.css('background-image', 'url(../media/' + weatherImgIndex[$(this).data()['jsWeather']] + '.gif)');
+    })
 }
