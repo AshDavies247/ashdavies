@@ -9,11 +9,8 @@ body {
     color: $fontColor;
 }
 
-main {
-    padding-top: em(200);
-}
-
 .alpha {
     font-size: em($fzHeading);
     text-align: center;
+    margin: em(60,$fzHeading) 0;
 }

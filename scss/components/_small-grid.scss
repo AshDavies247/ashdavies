@@ -1,0 +1,20 @@
+.small-grid {
+
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+
+    &__items {
+        height: em(50);
+        width: em(50);
+        margin-right: em(20);
+        background-color: $color4;
+        border-radius: em(4);
+        padding: em(1);
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+    }
+}

@@ -2,12 +2,12 @@
 // font sizes
 
 $fzBase: 22;
-$fzHeading: 33;
+$fzHeading: 70;
 
 // fonts
 
 $primaryFont: 'Source Sans Pro', Arial, sans-serif;
-$quoteFont: 'Charm', 'Source Sans Pro', Arial, sans-serif;
+
 
 // colors
 
@@ -20,8 +20,7 @@ $color5: #815E5B;
 
 // color variables
 
-$fontColor: #333;
+$fontColor: $color2;
 
 // homepage
 
-$portfolioPromo: $color1;
