@@ -1,0 +1,33 @@
+.todo {
+    width: em(400);
+    background-color: white;
+    margin: 0 auto;
+    color: $secondaryFont;
+    padding: em(30);
+}
+
+.list {
+
+    &__wrapper {
+        margin-top: em(40);
+    }
+
+    &__heading {
+        margin-bottom: em(20);
+    }
+
+    &__item {
+        margin-bottom: em(20);
+        padding-left: em(20);
+
+        &::before {
+            content: '';
+            height: em(10);
+            width: em(10);
+            display: inline-block;
+            border: 1px solid black;
+            margin-right: em(5);
+            border-radius: 50%;
+        }
+    }
+}

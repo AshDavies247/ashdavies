@@ -39,3 +39,22 @@ function weatherImgControl() {
         body.css('background-image', 'url(../media/' + weatherImgIndex[$(this).data()['jsWeather']] + '.gif)');
     })
 }
+
+// Todo list
+
+var listInput = $('[data-js-list="input"]');
+var listSubmit = $('[data-js-list="submit"]');
+var listTodo = $('[data-js-list="todo"]');
+var listDone = $('[data-js-list="done"]');
+
+listSubmit.on('click', function () {
+
+    var listData = listInput.val();
+
+    if (listData) {
+
+        var listItem = listTodo.append($("<li>" + listData + "</li>"));
+
+        listInput.val('');
+    }
+})
