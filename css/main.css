@@ -175,6 +175,35 @@ body {
   text-align: center;
 }
 
+.body {
+  color: #333;
+}
+
+.header {
+  background-color: white;
+  height: 4.5454545455em;
+  max-width: 22.7272727273em;
+  padding: 0 1.8181818182em;
+}
+.header__wrap {
+  max-width: 13.6363636364em;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__items {
+  display: flex;
+  justify-content: center;
+}
+.nav__item {
+  margin-right: 0.4545454545em;
+}
+.nav__item:last-child {
+  margin: 0;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -257,6 +286,10 @@ body {
   border: 1px solid black;
   margin-right: 0.2272727273em;
   border-radius: 50%;
+}
+
+body {
+  color: #333;
 }
 
 /*# sourceMappingURL=main.css.map */

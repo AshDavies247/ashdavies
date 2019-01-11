@@ -9,9 +9,12 @@
 
 // components
 
+@import 'components/header';
+@import 'components/nav';
 @import 'components/grid';
 @import 'components/small-grid';
 // layouts
 
 @import 'layouts/home';
 @import 'layouts/todo';
+@import 'layouts/responsive-page';

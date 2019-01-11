@@ -1,0 +1,14 @@
+.header {
+    background-color: white;
+    height: em(100);
+    max-width: em(500);
+    padding: 0 em(40);
+
+    &__wrap {
+        max-width: em(300);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
