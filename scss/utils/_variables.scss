@@ -3,6 +3,7 @@
 
 $fzBase: 22;
 $fzHeading: 70;
+$fzHeadingSmall: 40;
 
 // fonts
 
@@ -17,14 +18,14 @@ $color3: #8C9195;
 $color4: #EAF7CF;
 $color5: #815E5B;
 
-$primaryFont: $color2;
-$secondaryFont: #333;
+$primaryFontColor: $color2;
+$secondaryFontColor: #333;
 
 
 // color variables
 
-$fontColor: $primaryFont;
-$fontColorTodo: $secondaryFont;
+$fontColor: $primaryFontColor;
+$fontColorTodo: $secondaryFontColor;
 
 // homepage
 
