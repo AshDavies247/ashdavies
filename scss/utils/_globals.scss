@@ -6,7 +6,7 @@ body {
     @include font-size($fzBase);
     box-sizing: border-box;
     font-family: $primaryFont;
-    color: $fontColor;
+    color: $primaryFontColor;
 }
 
 .alpha {

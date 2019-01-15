@@ -14,14 +14,16 @@
 
 <body>
     <main class="content">
-
-        <a href="index.html">Back to the homepage</a>
+        <div class="back-link">
+            <a href="index.html">Back to the homepage</a>
+        </div>
 
         <div class="todo">
-            <div class="list__input">
-                <input type="text" name="task" data-js-list="input">
-                <button class="list__submit" data-js-list="submit">Submit</button>
-            </div>
+            <form data-js-list="form" class="form">
+                <label class="form__label" for="task">Add a task here</label>
+                <input class="form__input" type="text" name="task" data-js-list="input" placeholder="Press enter to submit" >
+            </form>
+
             <div class="list__wrapper">
                 <h2 class="list__heading">To Do</h2>
                 <ul class="list" data-js-list="todo">
@@ -33,10 +35,10 @@
                 <ul class="list" data-js-list="done">
                 </ul>
             </div>
-
         </div>
     </main>
     <script src="/js/main.js"></script>
+    <script src="/js/modules/todo.js"></script>
 </body>
 
 </html>

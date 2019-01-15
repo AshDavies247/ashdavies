@@ -1,9 +1,37 @@
+.back-link {
+
+    margin: em(40) auto;
+    text-align: center;
+
+    & a {
+        color: white;
+    }
+}
+
 .todo {
     width: em(400);
     background-color: white;
     margin: 0 auto;
     color: $fontColorTodo;
     padding: em(30);
+    border-radius: em(6);
+    @include box-shadow;
+}
+
+.form {
+
+    &__label {
+        display: block;
+        font-size: em($fzSmall);
+        margin-bottom: em(2,$fzSmall);
+    }
+
+    &__input {
+        
+        &::placeholder {
+            font-size: em($fzSmall);
+        }
+    }
 }
 
 .list {
@@ -19,6 +47,11 @@
     &__item {
         margin-bottom: em(20);
         padding-left: em(20);
+
+        &--done {
+            @extend .list__item;
+            text-decoration: line-through;
+        }
 
         &::before {
             content: '';
