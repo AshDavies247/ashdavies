@@ -1,0 +1,34 @@
+{
+  "name": "ashdavies",
+  "version": "1.0.0",
+  "description": "A place for me to mess around",
+  "main": "index.js",
+  "dependencies": {
+    "ajv": "^6.7.0",
+    "browsersync": "0.0.1-security",
+    "handlebars": "^4.0.12",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "webpack-mix": "^2.0.2"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/webpack-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/webpack-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/webpack-mix/setup/webpack.config.js",
+    "prod": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/webpack-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshDavies247/ashdavies.git"
+  },
+  "keywords": [],
+  "author": "Ash Davies",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AshDavies247/ashdavies/issues"
+  },
+  "homepage": "https://github.com/AshDavies247/ashdavies#readme"
+}

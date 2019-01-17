@@ -25,7 +25,10 @@ function createTodoItem(data) {
     listInput.val('');
     newListItem.attr('data-js-list','itemtodo');
     newListItem.addClass('list__item');
+    console.log(newListItem);
 }
+
+
 
 
 function createDoneItem(data) {
