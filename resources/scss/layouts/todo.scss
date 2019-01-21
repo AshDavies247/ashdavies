@@ -2,20 +2,35 @@
 
     margin: em(40) auto;
     text-align: center;
-
-    & a {
-        color: white;
-    }
 }
 
 .todo {
-    width: em(400);
+    max-width: em(800);
     background-color: white;
     margin: 0 auto;
     color: $fontColorTodo;
     padding: em(30);
     border-radius: em(6);
     @include box-shadow;
+
+    display: flex;
+
+    &__menu {
+        flex:  0 1 40%;
+    }
+
+    &__wrapper {
+        flex:  0 1 60%;
+    }
+}
+
+.todo__menu-item {
+    margin-bottom: em(20);
+    text-decoration: underline;
+
+    &:last-child {
+        margin: 0;
+    }
 }
 
 .form {
@@ -53,14 +68,12 @@
             text-decoration: line-through;
         }
 
-        &::before {
-            content: '';
-            height: em(10);
-            width: em(10);
-            display: inline-block;
-            border: 1px solid black;
-            margin-right: em(5);
-            border-radius: 50%;
+        & button {
+            @include link-button();
+            transform: rotate(45deg);
+            float: right;
+
         }
+
     }
 }

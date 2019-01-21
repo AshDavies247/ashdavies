@@ -359,12 +359,8 @@ body {
   text-align: center;
 }
 
-.back-link a {
-  color: white;
-}
-
 .todo {
-  width: 18.18181818em;
+  max-width: 36.36363636em;
   background-color: white;
   margin: 0 auto;
   color: #333;
@@ -373,6 +369,30 @@ body {
   box-shadow: 10px 10px 35px -6px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 10px 10px 35px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 35px -6px rgba(0, 0, 0, 0.75);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.todo__menu {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+}
+
+.todo__wrapper {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 60%;
+          flex: 0 1 60%;
+}
+
+.todo__menu-item {
+  margin-bottom: 0.90909091em;
+  text-decoration: underline;
+}
+
+.todo__menu-item:last-child {
+  margin: 0;
 }
 
 .form__label {
@@ -411,14 +431,28 @@ body {
   text-decoration: line-through;
 }
 
-.list__item::before,
-.list__item--done::before {
-  content: '';
-  height: 0.45454545em;
-  width: 0.45454545em;
-  display: inline-block;
-  border: 1px solid black;
-  margin-right: 0.22727273em;
-  border-radius: 50%;
+.list__item button,
+.list__item--done button {
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+  -moz-user-select: text;
+  /* Remove mystery padding in Gecko browsers.
+     * See https://bugzilla.mozilla.org/show_bug.cgi?id=140562
+     */
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  float: right;
+}
+
+.list__item button::-moz-focus-inner,
+.list__item--done button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
 }
 

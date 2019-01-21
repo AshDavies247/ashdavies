@@ -1,0 +1,34 @@
+@function em($pxval, $base: $fzBase) {
+    @return ($pxval / $base) * 1em;
+}
+
+@mixin font-size($sizeValue: 16){
+    font-size: $sizeValue + px;
+    font-size: ($sizeValue / 10) + rem;
+  }
+
+@mixin box-shadow() {
+    box-shadow: 10px 10px 35px -6px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 35px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 35px -6px rgba(0,0,0,0.75);
+}
+
+@mixin link-button() {
+    overflow: visible; // Shrinkwrap the text in IE7-
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit; // Inherit font settings (doesn’t work in IE7-)
+    line-height: normal; // Override line-height to avoid spacing issues
+    cursor: pointer; // Buttons don’t make the cursor change in all browsers
+    -moz-user-select: text; // Make button text selectable in Gecko
+
+    /* Remove mystery padding in Gecko browsers.
+     * See https://bugzilla.mozilla.org/show_bug.cgi?id=140562
+     */
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+}
