@@ -1,4 +1,4 @@
-// Weather API
+import $ from 'jquery';
 
 var weatherBgArea = $('.content');
 var weatherLoc = $('[data-js-weather="loc"]');

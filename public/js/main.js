@@ -77,145 +77,15 @@ module.exports = __webpack_require__(6);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_todo_new__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_weather__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_weather___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__modules_weather__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_weather__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_weather_new__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_todo__ = __webpack_require__(12);
 
 
 
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_handlebars__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_handlebars___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_handlebars__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
-
-
-
-__WEBPACK_IMPORTED_MODULE_1_jquery___default()(function ($) {
-
-    var enterKey = 13;
-
-    var utils = {
-        store: function store() {
-            localStorage.setItem('item', JSON.stringify(app.todos));
-        },
-
-        retreive: function retreive() {
-            var grabItems = localStorage.getItem('item');
-            var parseItems = JSON.parse(grabItems);
-            return app.todos = parseItems || [];
-        }
-    };
-
-    var app = {
-        init: function init() {
-            this.todos = utils.retreive();
-            this.render();
-            this.bindEvents();
-        },
-
-        bindEvents: function bindEvents() {
-            $('[data-js-list="input"]').on('keyup', this.create.bind(this));
-            $('[data-js-list="delete-all"]').on('click', this.deleteAll.bind(this));
-            $('[data-js-list="todo"]').on('click', '[data-js-list="complete"]', this.complete.bind(this));
-            $('[data-js-list="todo"]').on('click', '[data-js-list="delete"]', this.delete.bind(this));
-            $('[data-js-list="menu"]').on('click', '[data-js-list="delete-complete"]', this.deleteCompleted.bind(this));
-            $('[data-js-list="menu"]').on('click', '[data-js-list="complete-all"]', this.completeAll.bind(this));
-        },
-
-        create: function create(e) {
-
-            var $input = $(event.target);
-            var val = $input.val();
-
-            if (e.which !== enterKey || !val) {
-                return;
-            } else {
-                this.todos.push({
-                    val: val,
-                    completed: false
-                });
-            }
-
-            $input.val('');
-            utils.store();
-            this.render();
-        },
-
-        render: function render() {
-
-            var template = __WEBPACK_IMPORTED_MODULE_0_handlebars___default.a.compile($('[data-js-hb="todo-template"]').html());
-
-            $('[data-js-list="todo"]').html(template(this.todos));
-        },
-
-        deleteAll: function deleteAll() {
-            localStorage.removeItem('item');
-            this.todos = [];
-            this.render();
-        },
-
-        complete: function complete() {
-            var li = event.target.closest('li');
-            var itemIndex = this.getIndex(li);
-            var item = this.todos[itemIndex];
-
-            item.completed = !item.completed;
-            utils.store();
-            this.render();
-        },
-
-        getIndex: function getIndex(el) {
-            var val = $(el).data('js-value');
-            var i = this.todos.length;
-
-            while (i--) {
-                if (this.todos[i].val === val) {
-                    return i;
-                }
-            }
-        },
-
-        delete: function _delete() {
-            var li = event.target.closest('li');
-            var itemIndex = this.getIndex(li);
-
-            this.todos.splice(itemIndex, 1);
-            utils.store();
-            this.render();
-        },
-
-        getActive: function getActive() {
-            return this.todos.filter(function (todo) {
-                return !todo.completed;
-            });
-        },
-
-        deleteCompleted: function deleteCompleted() {
-            this.todos = this.getActive();
-            this.render();
-        },
-
-        completeAll: function completeAll() {
-
-            var i = this.todos.length;
-
-            while (i--) {
-                if (this.todos[i].completed === false) {
-                    this.todos[i].completed = true;
-                }
-            }
-            this.render();
-        }
-    };
-    app.init();
-});
 
 /***/ }),
+/* 2 */,
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10622,15 +10492,18 @@ return jQuery;
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// Weather API
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 
-var weatherBgArea = $('.content');
-var weatherLoc = $('[data-js-weather="loc"]');
-var weatherTemp = $('[data-js-weather="temp"]');
-var weatherCond = $('[data-js-weather="cond"]');
-var weatherControls = $('[data-js-weather="control"]');
+
+var weatherBgArea = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.content');
+var weatherLoc = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="loc"]');
+var weatherTemp = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="temp"]');
+var weatherCond = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="cond"]');
+var weatherControls = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="control"]');
 var weatherIndex = {
     2: 'thunderstorm',
     3: 'drizzle',
@@ -10662,7 +10535,7 @@ function weatherBgControl(id) {
 
 function weatherBgButtons() {
     weatherControls.on('click', function (e) {
-        var control = $(e.currentTarget).attr('id');
+        var control = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget).attr('id');
         weatherChangeBg(control);
     });
 };
@@ -10685,6 +10558,177 @@ function weatherGetInfo(data) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+
+
+__WEBPACK_IMPORTED_MODULE_0_jquery___default()(function ($) {
+
+    var utils = {
+        weatherIndex: {
+            2: 'thunderstorm',
+            3: 'drizzle',
+            5: 'rain',
+            6: 'snow',
+            7: 'atmosphere',
+            8: 'clear',
+            9: 'clouds'
+        }
+
+    };
+
+    var app = {
+        init: function init() {
+            fetch('https://api.openweathermap.org/data/2.5/weather?q=london,uk&appid=e447b53b0468e8185e7be1f1a16daccd').then(function (response) {
+                return response.json();
+            });
+        }
+    };
+
+    app.init();
+});
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_handlebars__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_handlebars___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_handlebars__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
+
+
+
+__WEBPACK_IMPORTED_MODULE_1_jquery___default()(function ($) {
+
+    var enterKey = 13;
+
+    var utils = {
+        store: function store() {
+            localStorage.setItem('item', JSON.stringify(app.todos));
+        },
+
+        retreive: function retreive() {
+            var grabItems = localStorage.getItem('item');
+            var parseItems = JSON.parse(grabItems);
+            return app.todos = parseItems || [];
+        }
+    };
+
+    var app = {
+        init: function init() {
+            this.todos = utils.retreive();
+            this.render();
+            this.bindEvents();
+        },
+
+        bindEvents: function bindEvents() {
+            $('[data-js-list="input"]').on('keyup', this.create.bind(this));
+            $('[data-js-list="delete-all"]').on('click', this.deleteAll.bind(this));
+            $('[data-js-list="todo"]').on('click', '[data-js-list="complete"]', this.complete.bind(this));
+            $('[data-js-list="todo"]').on('click', '[data-js-list="delete"]', this.delete.bind(this));
+            $('[data-js-list="menu"]').on('click', '[data-js-list="delete-complete"]', this.deleteCompleted.bind(this));
+            $('[data-js-list="menu"]').on('click', '[data-js-list="complete-all"]', this.completeAll.bind(this));
+        },
+
+        create: function create(e) {
+
+            var $input = $(event.target);
+            var val = $input.val();
+
+            if (e.which !== enterKey || !val) {
+                return;
+            } else {
+                this.todos.push({
+                    val: val,
+                    completed: false
+                });
+            }
+
+            $input.val('');
+            utils.store();
+            this.render();
+        },
+
+        render: function render() {
+
+            var template = __WEBPACK_IMPORTED_MODULE_0_handlebars___default.a.compile($('[data-js-hb="todo-template"]').html());
+
+            $('[data-js-list="todo"]').html(template(this.todos));
+        },
+
+        deleteAll: function deleteAll() {
+            localStorage.removeItem('item');
+            this.todos = [];
+            this.render();
+        },
+
+        complete: function complete() {
+            var li = event.target.closest('li');
+            var itemIndex = this.getIndex(li);
+            var item = this.todos[itemIndex];
+
+            item.completed = !item.completed;
+            utils.store();
+            this.render();
+        },
+
+        getIndex: function getIndex(el) {
+            var val = $(el).data('js-value');
+            var i = this.todos.length;
+
+            while (i--) {
+                if (this.todos[i].val === val) {
+                    return i;
+                }
+            }
+        },
+
+        delete: function _delete() {
+            var li = event.target.closest('li');
+            var itemIndex = this.getIndex(li);
+
+            this.todos.splice(itemIndex, 1);
+            utils.store();
+            this.render();
+        },
+
+        getActive: function getActive() {
+            return this.todos.filter(function (todo) {
+                return !todo.completed;
+            });
+        },
+
+        deleteCompleted: function deleteCompleted() {
+            this.todos = this.getActive();
+            this.render();
+        },
+
+        completeAll: function completeAll() {
+
+            var i = this.todos.length;
+
+            while (i--) {
+                if (this.todos[i].completed === false) {
+                    this.todos[i].completed = true;
+                }
+            }
+            this.render();
+        }
+    };
+    app.init();
+});
 
 /***/ })
 /******/ ]);
