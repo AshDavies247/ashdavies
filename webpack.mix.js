@@ -2,7 +2,11 @@ let mix = require('webpack-mix').mix;
 
 mix.sass('resources/scss/main.scss', 'public/css');
 mix.js('resources/js/main.js', 'public/js');
-mix.browserSync('ashdavies.test');
+mix.browserSync({
+	proxy: '',
+	server: 'public/',
+	files: ['public/**/**'],
+});
 
 mix.webpackConfig({
 	resolve: {
