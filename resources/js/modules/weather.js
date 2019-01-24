@@ -44,7 +44,7 @@ function weatherBgButtons() {
 };
 
 function weatherChangeBg(id) {
-    weatherBgArea.css('background-image', 'url(/public/media/' + weatherIndex[id] + '.gif)');
+    weatherBgArea.css('background-image', 'url(media/' + weatherIndex[id] + '.gif)');
 
 }
 
