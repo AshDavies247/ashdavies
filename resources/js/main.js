@@ -1,3 +1,3 @@
+import './modules/responsive-page';
 import './modules/weather';
-import './modules/weather-new';
 import './modules/todo';

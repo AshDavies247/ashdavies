@@ -1,0 +1,109 @@
+$fontHeadings: 48;
+$fontBody: 20;
+
+a {
+    font-family: $primaryFont;
+    color: #333;
+}
+
+main {
+    padding-top: em(110);
+}
+
+.header {
+    height: em(110);
+    width: 100%;
+    padding: 0 em(40);
+    position: fixed;
+    background-color: white;
+
+    &__wrap {
+        max-width: em(1080);
+        height: em(110);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__social {
+        height: em(25);
+        width: em(25);
+        display: inline-block;
+        margin-right: em(25);
+
+        &::last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.nav {
+
+    &__items{
+        display: flex;
+    }
+
+    &__item {
+        margin-right: em(100);
+
+        &:last-child{
+            margin: 0;
+        }
+    }
+}
+
+.carousel {
+
+    &__item {
+        background-image: url("/media/carousel-3.jpg");
+        background-size: cover;    
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+}
+
+.intro {
+    background-image: url('/media/intro-bg.jpg');
+    padding: em(70) em(5);
+
+    &__wrapper {
+        max-width: em(800);
+        margin: 0 auto;
+    }
+
+    &__header {
+        font-size: em($fontHeadings);
+        margin-bottom: em(40,$fontHeadings);
+    }
+
+    &__copy {
+        font-size: em($fontBody);
+        margin-bottom: em(30,$fontBody);
+    }
+}
+
+.section {
+    height: em(190);
+    text-align: center;
+
+    &__title {
+        font-size: em($fontHeadings);
+        color: #333;
+        padding: em(90,$fontHeadings) 0;
+
+        &::after {
+            content: '';
+            height: em(10);
+            width: em(10);
+            background-image: url('/media/intro-bg.jpg');
+            border-radius: 50%;
+            vertical-align: top;
+            display: inline-block;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}

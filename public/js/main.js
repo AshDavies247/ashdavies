@@ -10448,8 +10448,8 @@ module.exports = __webpack_require__(7);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_weather__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_weather_new__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_responsive_page__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_weather__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_todo__ = __webpack_require__(5);
 
 
@@ -10506,7 +10506,7 @@ function weatherBgButtons() {
 };
 
 function weatherChangeBg(id) {
-    weatherBgArea.css('background-image', 'url(../media/' + weatherIndex[id] + '.gif)');
+    weatherBgArea.css('background-image', 'url(media/' + weatherIndex[id] + '.gif)');
 }
 
 function weatherGetInfo(data) {
@@ -10519,41 +10519,7 @@ function weatherGetInfo(data) {
 }
 
 /***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-
-
-__WEBPACK_IMPORTED_MODULE_0_jquery___default()(function ($) {
-
-    var utils = {
-        weatherIndex: {
-            2: 'thunderstorm',
-            3: 'drizzle',
-            5: 'rain',
-            6: 'snow',
-            7: 'atmosphere',
-            8: 'clear',
-            9: 'clouds'
-        }
-
-    };
-
-    var app = {
-        init: function init() {
-            fetch('https://api.openweathermap.org/data/2.5/weather?q=london,uk&appid=e447b53b0468e8185e7be1f1a16daccd').then(function (response) {
-                return response.json();
-            });
-        }
-    };
-
-    app.init();
-});
-
-/***/ }),
+/* 4 */,
 /* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -10584,7 +10550,7 @@ __WEBPACK_IMPORTED_MODULE_1_jquery___default()(function ($) {
     var app = {
         init: function init() {
             this.todos = utils.retreive();
-            this.render();
+            // this.render();
             this.bindEvents();
         },
 
@@ -10619,7 +10585,6 @@ __WEBPACK_IMPORTED_MODULE_1_jquery___default()(function ($) {
         render: function render() {
 
             var template = __WEBPACK_IMPORTED_MODULE_0_handlebars___default.a.compile($('[data-js-hb="todo-template"]').html());
-
             $('[data-js-list="todo"]').html(template(this.todos));
         },
 
@@ -10724,6 +10689,32 @@ return d?[" && ",f]:[" != null ? ",f," : ",e]})},resolvePossibleLambda:function(
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+
+
+console.log('test');
+
+// jQuery(function($){
+//     $('.carousel').slick({
+//         dots: true,
+//         infinite: true,
+//         speed: 300,
+//         slidesToShow: 1,
+//         adaptiveHeight: true
+//     });
+
+// });
 
 /***/ })
 /******/ ]);

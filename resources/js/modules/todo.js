@@ -20,7 +20,7 @@ jQuery(function($){
     var app = {
         init: function() {
             this.todos = utils.retreive();
-            this.render();
+            // this.render();
             this.bindEvents();
         },
 
@@ -53,9 +53,8 @@ jQuery(function($){
         },
 
         render: function(){
-        
-            const template = Handlebars.compile($('[data-js-hb="todo-template"]').html());
 
+            const template = Handlebars.compile($('[data-js-hb="todo-template"]').html());
             $('[data-js-list="todo"]').html(template(this.todos));
         },
 
