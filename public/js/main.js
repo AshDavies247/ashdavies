@@ -77,73 +77,12 @@ module.exports = __webpack_require__(4);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_weather__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_weather_new__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_weather_new___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__modules_weather_new__);
 
 
 /***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-
-
-var weatherBgArea = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.content');
-var weatherLoc = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="loc"]');
-var weatherTemp = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="temp"]');
-var weatherCond = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="cond"]');
-var weatherControls = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="control"]');
-var weatherIndex = {
-    2: 'thunderstorm',
-    3: 'drizzle',
-    5: 'rain',
-    6: 'snow',
-    7: 'atmosphere',
-    8: 'clear',
-    9: 'clouds'
-};
-
-weatherBgButtons();
-
-fetch('https://api.openweathermap.org/data/2.5/weather?q=london,uk&appid=e447b53b0468e8185e7be1f1a16daccd').then(function (response) {
-    return response.json();
-}).then(function (myJson) {
-    weatherGetId(myJson);
-    weatherGetInfo(myJson);
-});
-
-function weatherGetId(data) {
-    var weatherId = data['weather'][0]['id'];
-    var weatherIdShort = weatherId.toString().charAt(0);
-    weatherBgControl(weatherIdShort);
-}
-
-function weatherBgControl(id) {
-    weatherChangeBg(id);
-};
-
-function weatherBgButtons() {
-    weatherControls.on('click', function (e) {
-        var control = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget).attr('id');
-        weatherChangeBg(control);
-    });
-};
-
-function weatherChangeBg(id) {
-    weatherBgArea.css('background-image', 'url(media/' + weatherIndex[id] + '.gif)');
-}
-
-function weatherGetInfo(data) {
-    var loc = data['name'];
-    var deg = data['main']['temp'];
-    var cond = data['weather'][0]['description'];
-    weatherLoc.html(loc);
-    weatherTemp.html(deg);
-    weatherCond.html(cond);
-}
-
-/***/ }),
+/* 2 */,
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10519,6 +10458,74 @@ return jQuery;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+
+
+var weatherDetect = {
+    init: function init() {
+        this.$bgArea = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.content');
+        this.$loc = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="loc"]');
+        this.$temp = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="temp"]');
+        this.$cond = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="cond"]');
+        this.$controls = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="control"]');
+        this.$index = {
+            2: 'thunderstorm',
+            3: 'drizzle',
+            5: 'rain',
+            6: 'snow',
+            7: 'atmosphere',
+            8: 'clear',
+            9: 'clouds'
+        };
+
+        this.getWeather();
+        this.eventHandlers();
+    },
+    getWeather: function getWeather() {
+        var _this = this;
+
+        __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.get('https://api.openweathermap.org/data/2.5/weather?q=london,uk&appid=e447b53b0468e8185e7be1f1a16daccd', function (data) {
+            _this.readWeather(data);
+        });
+    },
+    readWeather: function readWeather(data) {
+
+        this.location = data.name;
+        this.temp = data.main.temp;
+        this.condition = data.weather[0].id.toString().charAt(0);
+        this.description = data.weather[0].description;
+
+        this.setWeatherContent(this.condition, this.location, this.temp, this.description);
+    },
+    setWeatherContent: function setWeatherContent(condition, location, temp, description) {
+
+        this.$loc.html(location);
+        this.$temp.html(temp);
+        this.$cond.html(description);
+        this.$bgArea.css('background-image', 'url(media/' + this.$index[condition] + '.gif)');
+    },
+    eventHandlers: function eventHandlers() {
+        __WEBPACK_IMPORTED_MODULE_0_jquery___default()('[data-js-weather="control"]').on('click', this.changeBG.bind(this));
+    },
+    changeBG: function changeBG(e) {
+        this.control = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget).attr('id');
+
+        this.setWeatherContent(this.control);
+    }
+};
+
+weatherDetect.init();
 
 /***/ })
 /******/ ]);

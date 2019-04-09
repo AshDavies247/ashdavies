@@ -1,1 +1,1 @@
-import './modules/weather';
+import './modules/weather-new';
